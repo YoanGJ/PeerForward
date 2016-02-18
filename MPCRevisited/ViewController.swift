@@ -89,7 +89,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("idCellPeer") as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("idCellPeer") as UITableViewCell!
             
         cell.textLabel?.text = appDelegate.mpcManager.foundPeers[indexPath.row].displayName
             
@@ -121,22 +121,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func invitationWasReceived(fromPeer: String) {
-        let alert = UIAlertController(title: "", message: "\(fromPeer) wants to chat with you.", preferredStyle: UIAlertControllerStyle.Alert)
-            
-            let acceptAction: UIAlertAction = UIAlertAction(title: "Accept", style: UIAlertActionStyle.Default) { (alertAction) -> Void in
-            self.appDelegate.mpcManager.invitationHandler(true, self.appDelegate.mpcManager.session)
-        }
-        
-        let declineAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (alertAction) -> Void in
-            self.appDelegate.mpcManager.invitationHandler(false, nil)
-        }
-        
-        alert.addAction(acceptAction)
-        alert.addAction(declineAction)
-        
-        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
+        self.appDelegate.mpcManager.invitationHandler(true, self.appDelegate.mpcManager.session)
     }
     
     

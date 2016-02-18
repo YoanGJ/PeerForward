@@ -162,6 +162,7 @@
 		C04365511A626BA0000E0F15 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Appcoda;
 				TargetAttributes = {

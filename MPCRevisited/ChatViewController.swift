@@ -57,7 +57,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     
     @IBAction func endChat(sender: AnyObject) {
         let messageDictionary: [String: String] = ["message": "_end_chat_"]
-        if appDelegate.mpcManager.sendData(dictionaryWithData: messageDictionary, toPeer: appDelegate.mpcManager.session.connectedPeers[0] as! MCPeerID){
+        if appDelegate.mpcManager.sendData(dictionaryWithData: messageDictionary, toPeer: appDelegate.mpcManager.session.connectedPeers[0]){
             self.dismissViewControllerAnimated(true, completion: { () -> Void in
                 self.appDelegate.mpcManager.session.disconnect()
             })
@@ -78,7 +78,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("idCell") as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("idCell") as UITableViewCell!
         
         let currentMessage = messagesArray[indexPath.row] as Dictionary<String, String>
 
@@ -113,17 +113,17 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
-        let messageDictionary: [String: String] = ["message": textField.text]
+        let messageDictionary: [String: String] = ["message": textField.text!]
         
-        if appDelegate.mpcManager.sendData(dictionaryWithData: messageDictionary, toPeer: appDelegate.mpcManager.session.connectedPeers[0] as! MCPeerID){
+        if appDelegate.mpcManager.sendData(dictionaryWithData: messageDictionary, toPeer: appDelegate.mpcManager.session.connectedPeers[0] ){
             
-            var dictionary: [String: String] = ["sender": "self", "message": textField.text]
+            let dictionary: [String: String] = ["sender": "self", "message": textField.text!]
             messagesArray.append(dictionary)
             
             self.updateTableview()
         }
         else{
-            println("Could not send data")
+            print("Could not send data")
         }
         
         textField.text = ""
@@ -159,7 +159,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
             // Make sure that the message is other than "_end_chat_".
             if message != "_end_chat_"{
                 // Create a new dictionary and set the sender and the received message to it.
-                var messageDictionary: [String: String] = ["sender": fromPeer.displayName, "message": message]
+                let messageDictionary: [String: String] = ["sender": fromPeer.displayName, "message": message]
                 
                 // Add this dictionary to the messagesArray array.
                 messagesArray.append(messageDictionary)
