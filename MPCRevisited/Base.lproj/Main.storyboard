@@ -38,7 +38,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qFN-SJ-vj6" id="aKG-zl-FqE">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLL-z9-jN1">
@@ -211,6 +211,12 @@
                                     <barButtonItem systemItem="stop" id="pDQ-gv-55Z">
                                         <connections>
                                             <action selector="endChat:" destination="hZE-o4-oMb" id="sjU-zG-iaR"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="OOQ-cw-jL0"/>
+                                    <barButtonItem systemItem="camera" id="vcy-RG-rdW">
+                                        <connections>
+                                            <action selector="photoButton:" destination="hZE-o4-oMb" id="MBr-ab-06w"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
