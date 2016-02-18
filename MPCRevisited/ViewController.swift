@@ -89,16 +89,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("idCellPeer") as UITableViewCell!
-            
-        cell.textLabel?.text = appDelegate.mpcManager.foundPeers[indexPath.row].displayName
+        let cell = tableView.dequeueReusableCellWithIdentifier("idCellPeer") as! PeerTableViewCell!
+        
+        cell.Title.text = appDelegate.mpcManager.foundPeers[indexPath.row].displayName
             
         return cell
     }
     
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 60.0
+        return 100.0
     }
     
     

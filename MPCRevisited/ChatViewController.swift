@@ -87,8 +87,8 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UITableViewDele
             var senderColor: UIColor
             
             if sender == "self"{
-                senderLabelText = "I said:"
-                senderColor = UIColor.purpleColor()
+                senderLabelText = "me:"
+                senderColor = UIColor(red: 0.545, green: 0.765, blue: 0.29, alpha: 1)
             }
             else{
                 senderLabelText = sender + " said:"
